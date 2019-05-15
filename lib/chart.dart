@@ -1,13 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:pie_chart/pie_chart.dart';
 
+_MyChartState chartState;
+
 class MyChart extends StatefulWidget {
   @override
-  _MyChartState createState() => _MyChartState();
+  _MyChartState createState() {
+    chartState = _MyChartState();
+    return chartState;
+  }
 
-  static Map<String, double> createData() {
+  static Map<String, double> createData(double value) {
     Map<String, double> dataMap = new Map();
-    dataMap.putIfAbsent("Flutter", () => 5);
+    dataMap.putIfAbsent("Flutter", () => value);
     dataMap.putIfAbsent("React", () => 3);
     dataMap.putIfAbsent("Xamarin", () => 2);
     dataMap.putIfAbsent("Ionic", () => 2);
@@ -20,7 +25,7 @@ class MyChart extends StatefulWidget {
 }
 
 class _MyChartState extends State<MyChart> {
-  final seriesList = MyChart.createData();
+  var seriesList = MyChart.createData(5);
 
   @override
   Widget build(BuildContext context) {

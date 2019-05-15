@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:slider_state_management/chart.dart';
 
 class MySlider extends StatefulWidget {
   @override
@@ -18,5 +19,8 @@ class _MySliderState extends State<MySlider> {
 
   void _onValueChanged(double value) {
     setState(() => _value = value);
+    chartState.setState(() {
+      chartState.seriesList = MyChart.createData(_value);
+    });
   }
 }
