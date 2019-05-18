@@ -8,17 +8,11 @@ import 'package:slider_state_management/MySchedule.dart';
 class MyChart extends StatelessWidget {
 //  final seriesList = createData();
 
-
   @override
   Widget build(BuildContext context) {
-    return Consumer<MySchedule>(builder: (context, scheduler, _) => PieChart(dataMap: createData(
-      scheduler.stateManagementTime
-    )));
-//    return PieChart(seriesList,
-//        animate: false,
-//        defaultRenderer: ArcRendererConfig(arcRendererDecorators: [
-//          ArcLabelDecorator(labelPosition: ArclabelPosition)
-//        ]));
+    return Consumer<MySchedule>(
+        builder: (context, scheduler, _) =>
+            PieChart(dataMap: createData(scheduler.stateManagementTime)));
   }
 
   static Map<String, double> createData(double newValue) {
@@ -41,4 +35,3 @@ class _Problem {
   final String name;
   final String time;
 }
-
